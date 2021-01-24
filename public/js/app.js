@@ -1834,10 +1834,10 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/hellow.ts":
-/*!********************************!*\
-  !*** ./resources/js/hellow.ts ***!
-  \********************************/
+/***/ "./resources/js/user.ts":
+/*!******************************!*\
+  !*** ./resources/js/user.ts ***!
+  \******************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1846,13 +1846,43 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.helloWorld = void 0;
 
-function helloWorld() {
-  return "Hello world!";
-}
+var User =
+/** @class */
+function () {
+  function User() {}
 
-exports.helloWorld = helloWorld;
+  User.prototype.loadUser = function () {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/api/user1');
+    xhr.responseType = 'json';
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        var status_1 = xhr.status;
+
+        if (status_1 === 0 || status_1 >= 200 && status_1 < 400) {
+          console.log(xhr.response); // this.showUser(xhr.responseText);
+        } else {
+          console.log('error');
+        }
+      }
+    };
+
+    xhr.send();
+  };
+
+  User.prototype.showUser = function (users) {
+    var userEl = document.getElementsByClassName('user')[0];
+    var elDiv = document.createElement('div');
+    elDiv.innerText = users;
+    userEl.appendChild(elDiv);
+  };
+
+  return User;
+}();
+
+exports.default = User;
 
 /***/ }),
 
@@ -1864,9 +1894,7 @@ exports.helloWorld = helloWorld;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var helloWorld = __webpack_require__(/*! ./hellow */ "./resources/js/hellow.ts").helloWorld();
-
-console.log(helloWorld);
+__webpack_require__(/*! ./index */ "./resources/js/index.js").index();
 
 /***/ }),
 
@@ -1898,6 +1926,26 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/index.js":
+/*!*******************************!*\
+  !*** ./resources/js/index.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "index": () => /* binding */ index
+/* harmony export */ });
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ "./resources/js/user.ts");
+
+function index() {
+  var user = new _user__WEBPACK_IMPORTED_MODULE_0__.default();
+  user.loadUser();
+}
 
 /***/ }),
 
@@ -19307,6 +19355,18 @@ process.umask = function() { return 0; };
 /******/ 	// It's empty as some runtime module handles the default behavior
 /******/ 	__webpack_require__.x = x => {}
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {

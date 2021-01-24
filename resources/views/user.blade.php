@@ -9,6 +9,9 @@
 </head>
 <body>
 <h2>Hello</h2>
+<div class="user">
+
+</div>
 <script src="{{asset('js/app.js')}}">
 
 </script>
