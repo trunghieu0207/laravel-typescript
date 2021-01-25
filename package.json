@@ -7,13 +7,19 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "eslint": "eslint resources/js/**/*.ts",
+        "prettier-format": "prettier --config .prettierrc resources/js/**/*.ts --write"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.14.0",
+        "@typescript-eslint/parser": "^4.14.0",
         "axios": "^0.21",
+        "eslint": "^7.18.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "prettier": "^2.2.1",
         "ts-loader": "^8.0.14",
         "typescript": "^4.1.3"
     }
