@@ -1862,7 +1862,7 @@ function () {
         var status_1 = xhr.status;
 
         if (status_1 === 0 || status_1 >= 200 && status_1 < 400) {
-          console.log(xhr.response); // this.showUser(xhr.responseText);
+          console.log(xhr.response); // this.showUser(xhr.response);
         } else {
           console.log('error');
         }
@@ -1875,7 +1875,7 @@ function () {
   User.prototype.showUser = function (users) {
     var userEl = document.getElementsByClassName('user')[0];
     var elDiv = document.createElement('div');
-    elDiv.innerText = users;
+    elDiv.innerText = users.toString();
     userEl.appendChild(elDiv);
   };
 
