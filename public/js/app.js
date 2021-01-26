@@ -1886,13 +1886,35 @@ exports.default = User;
 
 /***/ }),
 
+/***/ "./resources/js/a.js":
+/*!***************************!*\
+  !*** ./resources/js/a.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "index": () => /* binding */ index
+/* harmony export */ });
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ "./resources/js/user.ts");
+
+function index() {
+  var user = new _user__WEBPACK_IMPORTED_MODULE_0__.default();
+  user.loadUser();
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+// eslint-disable-next-line no-undef
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
+
 
 __webpack_require__(/*! ./index */ "./resources/js/index.js").index();
 
@@ -19417,6 +19439,7 @@ process.umask = function() { return 0; };
 /******/ 		
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
+/******/ 			["./resources/js/a.js"],
 /******/ 			["./resources/css/app.css"]
 /******/ 		];
 /******/ 		// no chunk on demand loading

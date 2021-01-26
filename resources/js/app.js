@@ -1,2 +1,4 @@
+// eslint-disable-next-line no-undef
 require('./bootstrap');
-require("./index").index();
+// eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
+require('./index').index();
