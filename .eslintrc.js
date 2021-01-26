@@ -1,37 +1,25 @@
 // eslint-disable-next-line no-undef
 module.exports = {
-    'env': {
-        'browser': true,
-        'es2021': true
+    env: {
+        browser: true,
+        es2021: true
     },
-    'extends': [
+    extends: [
         'eslint:recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        'prettier'
     ],
-    'parser': '@typescript-eslint/parser',
-    'parserOptions': {
-        'ecmaVersion': 12,
-        'sourceType': 'module'
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 12,
+        sourceType: 'module'
     },
-    'plugins': [
-        '@typescript-eslint'
-    ],
-    'rules':{
-        'indent': [
-            'error',
-            4
-        ],
-        'linebreak-style': [
-            'error',
-            'unix'
-        ],
-        'quotes': [
-            'error',
-            'single'
-        ],
-        'semi': [
-            'error',
-            'always'
-        ]
+    plugins: ['@typescript-eslint', 'prettier'],
+    rules: {
+        indent: ['error', 4],
+        'linebreak-style': ['error', 'unix'],
+        quotes: ['error', 'single'],
+        semi: ['error', 'always'],
+        'prettier/prettier': ['error']
     }
 };
